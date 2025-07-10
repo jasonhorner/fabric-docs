@@ -19,6 +19,17 @@ You can use this feature to inspect the file contents before loading them into y
 
 Once you understand your data, you can create the tables that will be used to store the ingested file content. 
 
+## Permissions
+To use the `OPENROWSET` function with external data sources, the following permissions are required:
+
+`ADMINISTER DATABASE BULK OPERATIONS` must be granted to the executing principal:
+
+  ```sql
+  GRANT ADMINISTER DATABASE BULK OPERATIONS TO [<principal_name>];
+```
+
+If the target storage account is private, the principal must also have the **Storage Blob Data Reader** role (or higher) assigned at the container or storage account level.
+
 ## Browse Parquet files using the OPENROWSET function
 
 In the first example, we will inspect data from a Parquet source.
